@@ -3,22 +3,22 @@ const { DataTypes } = require("sequelize")
 module.exports = (db) => {
     db.define("Flight", {
         YEAR:{
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         MONTH:{
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         DAY:{
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         DAY_OF_WEEK:{
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         AIRLINE:{
             type: DataTypes.STRING
         },
         FLIGHT_NUMBER:{
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         TAIL_NUMBER:{
             type: DataTypes.STRING
