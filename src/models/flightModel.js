@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize")
 
 module.exports = (db) => {
-    db.define("Airport", {
+    db.define("Flight", {
         YEAR:{
             type: DataTypes.NUMBER
         },
