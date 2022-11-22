@@ -1,16 +1,16 @@
 require("dotenv").config()
 const app = require("./src/app")
-const {db} = require("./src/db")
+const { db } = require("./src/db")
 const { PORT } = process.env
 
 let force = true
 
-db.sync({force:force}).then(
-    async() => {
+db.sync({ force: force }).then(
+    async () => {
         app.listen(PORT, () => {
-        console.log(`listening on port ${PORT}`)
-
-})})
-.catch((error)=>{
-    console.log("error",error)
-})
+            console.log(`listening on port ${PORT}`)
+        })
+    })
+    .catch((error) => {
+        console.log("error", error)
+    })
