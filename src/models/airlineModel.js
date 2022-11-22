@@ -10,6 +10,11 @@ module.exports = (db) => {
         AIRLINE:{
             type: DataTypes.STRING,
             allownull: false
+        },
+        is_deleted:{
+            type: DataTypes.BOOLEAN,
+            allownull: false,
+            defaultValue: false
         }
     },{timestamps:false})
 }

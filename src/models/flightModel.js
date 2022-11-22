@@ -94,6 +94,11 @@ module.exports = (db) => {
         },
         WEATHER_DELAY:{
             type: DataTypes.STRING
+        },
+        is_deleted:{
+            type: DataTypes.BOOLEAN,
+            allownull: false,
+            defaultValue: false
         }
 
     }, { timestamps: false })

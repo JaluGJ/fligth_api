@@ -24,6 +24,11 @@ module.exports = (db) => {
         },
         LONGITUDE: {
             type: DataTypes.FLOAT
+        },
+        is_deleted:{
+            type: DataTypes.BOOLEAN,
+            allownull: false,
+            defaultValue: false
         }
     }, { timestamps: false })
 }
