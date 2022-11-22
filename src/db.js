@@ -39,10 +39,13 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 db.models = Object.fromEntries(capsEntries);
 
 
-//const {} = db.models;
+const {Airline, Airport, Flight} = db.models;
 
+Flight.hasOne(Airline)
+Airline.belongsTo(Flight)
 
-
+Flight.hasMany(Airport)
+Airport.belongsTo(Flight)
 
 
 db.authenticate()
