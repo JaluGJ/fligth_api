@@ -14,7 +14,7 @@ module.exports={
                 }
             })
             if (!isCreated) return res.status(401).json({message: "This airline already exists"})
-            return res.json({message: "Airline created successfully", newAirline})
+            return res.json({message: "Airline created successfully", data: newAirline})
             
         } catch (error) {
             return res.json(400).json(error)

@@ -14,7 +14,7 @@ module.exports={
             const {IATA_CODE} = req.params
             let airline = await Airline.findByPk(IATA_CODE)
             if (!airline) return res.status(404).json({message: "Airline not found"})
-            return res.json(airline)
+            return res.json({data:airline})
         } catch (error) {
             return res.status(400).json(error)
         }
