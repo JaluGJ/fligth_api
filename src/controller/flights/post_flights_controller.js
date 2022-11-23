@@ -78,16 +78,15 @@ module.exports = {
       let destination = await Airport.findByPk(DESTINATION_AIRPORT)
       let airline = await Airline.findByPk(AIRLINE)
       
-      await newFlight.setAirline(airline, {through: AIRLINE})
-      await newFlight.setAirport(origin, {through: ORIGIN_AIRPORT})
-      await newFlight.setAirport(destination, {through: DESTINATION_AIRPORT})
+      await newFlight.screAirline(airline)
+      await newFlight.setAirport(origin)
+      await newFlight.setAirport(destination)
 
       return res.json({data: newFlight})
       
     } catch (error) {
       return res.status(400).json(error)
     }
-
   }
 }
 

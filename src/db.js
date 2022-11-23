@@ -44,7 +44,8 @@ const {Airline, Airport, Flight} = db.models;
 Flight.hasOne(Airline)
 Airline.belongsTo(Flight)
 
-Flight.hasMany(Airport)
+Flight.hasOne(Airport, {as: "ORIGIN_AIRPORT"})
+Flight.hasOne(Airport, {as: "DESTINATION_AIRPORT"})
 Airport.belongsTo(Flight)
 
 
