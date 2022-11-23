@@ -37,11 +37,7 @@ module.exports = {
         LATE_AIRCRAFT_DELAY,
         WEATHER_DELAY } = req.body
   
-      const [newFlight, isCreated] = await Flight.findOrCreate({
-        where: {
-          id
-        },
-        defaults: {
+      const newFlight = await Flight.create({
           YEAR,
           MONTH,
           DAY,
@@ -70,17 +66,17 @@ module.exports = {
           AIRLINE_DELAY,
           LATE_AIRCRAFT_DELAY,
           WEATHER_DELAY
-        }
       })
-      if (!isCreated) return res.status(401).json({message:"the flight is already created"})
 
       let origin = await Airport.findByPk(ORIGIN_AIRPORT)
-      let destination = await Airport.findByPk(DESTINATION_AIRPORT)
-      let airline = await Airline.findByPk(AIRLINE)
-      
-      await newFlight.screAirline(airline)
       await newFlight.setAirport(origin)
+      
+      let destination = await Airport.findByPk(DESTINATION_AIRPORT)
       await newFlight.setAirport(destination)
+      
+      let airline = await Airline.findByPk(AIRLINE)
+      await newFlight.screAirline(airline)
+      
 
       return res.json({data: newFlight})
       
