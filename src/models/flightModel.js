@@ -2,6 +2,12 @@ const { DataTypes } = require("sequelize")
 
 module.exports = (db) => {
     db.define("Flight", {
+        id:{
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            allownull:false,
+            primaryKey: true
+        },
         YEAR:{
             type: DataTypes.INTEGER
         },
@@ -14,19 +20,10 @@ module.exports = (db) => {
         DAY_OF_WEEK:{
             type: DataTypes.INTEGER
         },
-        AIRLINE:{
-            type: DataTypes.STRING
-        },
         FLIGHT_NUMBER:{
             type: DataTypes.INTEGER
         },
         TAIL_NUMBER:{
-            type: DataTypes.STRING
-        },
-        ORIGIN_AIRPORT:{
-            type: DataTypes.STRING
-        },
-        DESTINATION_AIRPORT:{
             type: DataTypes.STRING
         },
         SCHEDULED_DEPARTURE:{
