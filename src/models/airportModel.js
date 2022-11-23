@@ -20,10 +20,10 @@ module.exports = (db) => {
             type: DataTypes.STRING
         },
         LATITUDE: {
-            type: DataTypes.FLOAT
+            type: DataTypes.DOUBLE
         },
         LONGITUDE: {
-            type: DataTypes.FLOAT
+            type: DataTypes.DOUBLE
         },
         is_deleted:{
             type: DataTypes.BOOLEAN,
