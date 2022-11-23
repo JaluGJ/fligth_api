@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 function airportSeeder() {
-	csv = fs.readFileSync("../../archive/airports.csv")
+	let csv = fs.readFileSync("./archive/airports.csv")
 	let array = csv.toString().split("\n")
 	let data = []
   let header = array[0].split(",")

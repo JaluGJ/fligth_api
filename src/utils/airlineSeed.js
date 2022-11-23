@@ -1,8 +1,9 @@
 const fs = require("fs");
 
 function airlineSeeder() {
-	csv = fs.readFileSync("../../archive/airlines.csv")
+	let csv = fs.readFileSync("./archive/airlines.csv")
 	let array = csv.toString().split("\n")
+	// console.log(array)
 	let data = []
 	array.forEach((el, i) => {
 		if (i === 0) return
@@ -14,7 +15,7 @@ function airlineSeeder() {
 }
 
 
-// console.log(airlineSeeder())
+// airlineSeeder()
 
 module.exports = {
 	airlineSeeder
