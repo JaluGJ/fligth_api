@@ -4,6 +4,7 @@ module.exports={
     createNewAirline: async (req,res) => {
         try {
             const {IATA_CODE, AIRLINE} = req.body
+            if(!IATA_CODE || !AIRLINE) return res.status(401).json({message: "Missing primary information"})
             let [newAirline,isCreated] = await Airline.findOrCreate({
                 where:{
                     IATA_CODE
