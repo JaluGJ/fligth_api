@@ -7,7 +7,7 @@ const { flightSeeder } = require("./src/utils/flightSeed")
 const { PORT } = process.env
 
 
-/*
+
  function airports() {
   const airports = airportSeeder()
   airports.forEach(async (airport) => {
@@ -25,10 +25,10 @@ const { PORT } = process.env
         LONGITUDE: Number(airport.LONGITUDE)
       }
     })
-    if (!isCreated) console.log("already created airport")
-    if (isCreated) console.log("creating airport")
+    //if (!isCreated) console.log("already created airport")
+    //if (isCreated) console.log("creating airport")
   })
-  return "done"
+  return "airports done"
 }
 
 
@@ -44,12 +44,12 @@ const { PORT } = process.env
         AIRLINE: airline.AIRLINE
       }
     })
-    if (!isCreated) console.log("already created airline")
-    if (isCreated) console.log("creating airline")
+    //if (!isCreated) console.log("already created airline")
+    //if (isCreated) console.log("creating airline")
   })
-  return "done"
+  return "airlines done"
 }
-
+/*
  function flights() {
   let flights = flightSeeder()
   flights.forEach(async (flight) => {
@@ -95,13 +95,15 @@ const { PORT } = process.env
   return "done"
 }
 */
-let force = true
+let force = false
 
 db.sync({ force: force }).then(
   async () => {
     app.listen(PORT, () => {
-      //airlines() 
-      //airports()
+      let al = airlines() 
+      console.log(al)
+      let ap = airports()
+      console.log(ap)
       //flights()
       console.log(`listening on port ${PORT}`)
     })
