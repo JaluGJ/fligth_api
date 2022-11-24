@@ -9,7 +9,7 @@ const server = express();
 server.name = "API";
 
 server.use(cors({ origin: "*" }));
-server.use(express.json);
+server.use(express.json());
 server.use(morgan("dev"));
 server.use("/", routes)
 server.use((err, req, res, next) => {
