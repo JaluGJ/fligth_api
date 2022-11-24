@@ -6,7 +6,7 @@ const Flights = require("./flights")
 
 
 router.use("/airlines", Airlines)
-router.use("/aiports", Airports)
+router.use("/airports", Airports)
 router.use("/fligths", Flights)
 
 module.exports = router
